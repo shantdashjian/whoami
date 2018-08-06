@@ -26,7 +26,7 @@ app.get("/api/hello", function (req, res) {
 
 // send back request info: ip address, langauge, and system info
 app.get("/api/whoami", function (req, res) {
-  res.json({"ipaddress": req.ip,"language": req.get('Accept-Language'),
+  res.json({"ipaddress": req.get('X-Forwarded-For'),"language": req.get('Accept-Language'),
 "software": req.get('User-Agent')});
 });
 
